@@ -1,0 +1,16 @@
+name: Veronica Ping
+
+on:
+  push:
+    paths:
+      - 'PING.md'
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Veronica is alive
+        run: |
+          echo "Veronica pushed at $(date)"
+          echo "Message contents:"
+          cat $GITHUB_WORKSPACE/PING.md 2>/dev/null || echo "No message"
